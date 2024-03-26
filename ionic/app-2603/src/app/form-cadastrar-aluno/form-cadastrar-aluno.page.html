@@ -1,0 +1,56 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Cadastro de Alunos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form #form="ngForm" (ngSubmit)="cadastrar(form)">
+
+    <ion-item>
+      <ion-label position="floating">Nome:</ion-label>
+      <ion-input [(ngModel)]="cadastro.nome" type="text" name="nome" [ngModelOptions]="{ standalone: true}" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Gênero:</ion-label>
+      <ion-select name="genero" [(ngModel)]="cadastro.genero" interface="action-sheet" [ngModelOptions]="{ standalone: true}" required>
+        <ion-select-option value="masculino">Masculino</ion-select-option>
+        <ion-select-option value="feminino">Feminino</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Telefone:</ion-label>
+      <ion-input [(ngModel)]="cadastro.telefone" type="tel" name="telefone" [ngModelOptions]="{ standalone: true}" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Matrícula:</ion-label>
+      <ion-input [(ngModel)]="cadastro.matricula" type="text" name="matricula" [ngModelOptions]="{ standalone: true}" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Aluno Bilingue:</ion-label>
+      <ion-toggle [(ngModel)]="cadastro.aluno_bilingue" name="aluno_bilingue" [ngModelOptions]="{ standalone: true}" required></ion-toggle>
+    </ion-item>
+
+      <ion-item>
+        <ion-label>Cursos de Tecnologia:</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>HTML</ion-label>
+        <ion-checkbox [(ngModel)]="cadastro.curso_tec" value="HTML" id="cbHTML"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>PHP</ion-label>
+        <ion-checkbox [(ngModel)]="cadastro.curso_tec" value="PHP" id="cbPHP"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>C#</ion-label>
+        <ion-checkbox [(ngModel)]="cadastro.curso_tec" value="C#" id="cbCsharp"></ion-checkbox>
+      </ion-item>
+
+    <ion-button type="submit" expand="block" name="botao-cadastrar" [disabled]="!form.valid">Cadastrar</ion-button>
+  </form>
+</ion-content>
